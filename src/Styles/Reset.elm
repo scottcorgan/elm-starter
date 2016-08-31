@@ -5,6 +5,7 @@ import Css.Elements exposing (..)
 import Css.Namespace exposing (namespace)
 
 
+
 css : Css.Stylesheet
 css =
     (Css.stylesheet << namespace "")
@@ -19,8 +20,8 @@ css =
         , h6 headerMixin
         , ul listMixin
         , li listMixin
+        , p [ padding (px 20), margin zero ]
         ]
-
 
 -- mixins
 
