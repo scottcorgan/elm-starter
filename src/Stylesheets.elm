@@ -8,6 +8,7 @@ import Html exposing (div)
 import Html.App as Html
 
 import Styles.Reset as ResetStyles
+import Css.Normalize
 
 
 port files : CssFileStructure -> Cmd msg
@@ -15,7 +16,8 @@ port files : CssFileStructure -> Cmd msg
 
 styles : List Css.Stylesheet
 styles =
-    [ ResetStyles.css
+    [ Css.Normalize.css
+    , ResetStyles.css
     ]
 
 

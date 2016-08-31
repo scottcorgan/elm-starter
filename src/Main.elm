@@ -68,7 +68,7 @@ urlUpdate pageResult model =
             { model | currentPage = page } ! []
 
         Err _ ->
-            ( model, Cmd.none )
+            model ! []
 
 
 -- NOTE: this just takes a location and returns whatever the urlUpdate
