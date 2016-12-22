@@ -1,11 +1,9 @@
 module Main exposing (..)
 
 import String
-
 import Html exposing (..)
 import Navigation
 import UrlParser exposing (Parser, (</>), format, int, oneOf, s, string)
-
 import Page.Home as PageHome
 
 
@@ -18,6 +16,7 @@ main =
         , init = urlInit
         , subscriptions = subscriptions
         }
+
 
 
 -- model
@@ -34,6 +33,7 @@ defaultModel =
     }
 
 
+
 -- update
 
 
@@ -42,7 +42,7 @@ type Msg
     | NavigateTo Page
 
 
-update : Msg -> Model -> ( Model, Cmd Msg)
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->
@@ -50,10 +50,11 @@ update msg model =
 
         NavigateTo page ->
             model ! []
-                --[ Navigation.newUrl "/foods/new"
-                --]
 
 
+
+--[ Navigation.newUrl "/foods/new"
+--]
 -- navigation
 
 
@@ -71,8 +72,11 @@ urlUpdate pageResult model =
             model ! []
 
 
+
 -- NOTE: this just takes a location and returns whatever the urlUpdate
 --       function expects for the first argument
+
+
 urlParser : Navigation.Location -> Result String Page
 urlParser location =
     UrlParser.parse
@@ -109,10 +113,10 @@ init =
     defaultModel ! []
 
 
-
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.none
+
 
 
 -- view
@@ -123,7 +127,3 @@ view model =
     case model.currentPage of
         Home ->
             PageHome.view
-
-
-
-

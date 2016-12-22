@@ -1,12 +1,9 @@
 port module Stylesheets exposing (..)
 
 import String
-
 import Css exposing (..)
 import Css.File exposing (..)
 import Html exposing (div)
-import Html.App as Html
-
 import Styles.Reset as ResetStyles
 import Css.Normalize
 
@@ -23,10 +20,10 @@ styles =
 
 cssFiles : CssFileStructure
 cssFiles =
-    toFileStructure [ ("dist/styles.css", compileMany styles) ]
+    toFileStructure [ ( "dist/styles.css", compileMany styles ) ]
 
 
-compileMany : List Css.Stylesheet -> { warnings: List String, css: String }
+compileMany : List Css.Stylesheet -> { warnings : List String, css : String }
 compileMany styles =
     let
         results =
@@ -37,7 +34,7 @@ compileMany styles =
         }
 
 
-main : Program Never
+main : Program Never () msg
 main =
     Html.program
         { init = ( (), files cssFiles )
